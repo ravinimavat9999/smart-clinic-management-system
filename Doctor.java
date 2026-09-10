@@ -1,19 +1,6 @@
-package com.example.smartclinic.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "doctor")
 public class Doctor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long doctorId;
-
     private String username;
     private String password;
     private String email;
@@ -24,6 +11,22 @@ public class Doctor {
     private Integer yearsOfExperience;
 
     public Doctor() {
+    }
+
+    public Doctor(Long doctorId, String username, String password,
+                  String email, String fullName, String specialization,
+                  String licenseNumber, String phoneNumber,
+                  Integer yearsOfExperience) {
+
+        this.doctorId = doctorId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.fullName = fullName;
+        this.specialization = specialization;
+        this.licenseNumber = licenseNumber;
+        this.phoneNumber = phoneNumber;
+        this.yearsOfExperience = yearsOfExperience;
     }
 
     public Long getDoctorId() {
@@ -96,5 +99,15 @@ public class Doctor {
 
     public void setYearsOfExperience(Integer yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public void displayDoctorDetails() {
+        System.out.println("Doctor ID: " + doctorId);
+        System.out.println("Name: " + fullName);
+        System.out.println("Specialization: " + specialization);
+        System.out.println("License Number: " + licenseNumber);
+        System.out.println("Email: " + email);
+        System.out.println("Phone: " + phoneNumber);
+        System.out.println("Years of Experience: " + yearsOfExperience);
     }
 }
